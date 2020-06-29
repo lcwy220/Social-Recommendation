@@ -30,7 +30,7 @@ from model import GraphRec
 from dataloader import GRDataset
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--dataset_path', default='/mnt/data/yuankun/graphrec/datasets/Epinions/', help='dataset directory path: datasets/Ciao/Epinions')
+parser.add_argument('--dataset_path', default='datasets/Epinions/', help='dataset directory path: datasets/Ciao/Epinions')
 parser.add_argument('--batch_size', type=int, default=256, help='input batch size')
 parser.add_argument('--embed_dim', type=int, default=64, help='the dimension of embedding')
 parser.add_argument('--epoch', type=int, default=30, help='the number of epochs to train for')
