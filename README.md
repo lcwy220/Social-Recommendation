@@ -11,10 +11,10 @@ Models for social recommendation
     
     preprocess_filter5.py: users with more than 5 ratings are kept, as well as the corresponding items. 80%, 10%, 10% for training, validation and testing, respectively.
     
-    '''
+    
     python main.py
-    '''
     
     
-    **Warming**: 
+    
+    Warming: 
     In data preprocessing, users or items in valid set or test set may not be appeared in training set and this case impacts the accuracy. So I'm not sure whether these users and items should be filtered in valid set and test set.
