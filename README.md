@@ -1,4 +1,4 @@
-# Social-Recommendation
+Social-Recommendation
 Models for social recommendation
 
 Graphrec
