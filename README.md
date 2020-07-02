@@ -1,7 +1,7 @@
 # Social-Recommendation
 Models for social recommendation
 
-### Graphrec
+Graphrec
 
     A PyTorch implementation of the GraphRec model in Graph Neural Networks for Social Recommendation (Fan, Wenqi, et al. "Graph Neural Networks for Social Recommendation." The World Wide Web Conference. ACM, 2019).
     
