@@ -19,3 +19,6 @@ Models for social recommendation
     
    **Warming**: 
     In data preprocessing, users or items in valid set or test set may not be appeared in training set and this case impacts the accuracy. So I'm not sure whether these users and items should be filtered in valid set and test set.
+
+
+   **Comments**：I recommend you researchers should be careful with the GraphRec's performance, since although the performance is reproducted with some additional skills, it's still much worse than TrustSVD. So I hope all you guys can use TrustSVD as one of the baselines for Social Recommendation problem.
