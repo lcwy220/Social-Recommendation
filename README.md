@@ -22,3 +22,11 @@ Models for social recommendation
 
 
    **Comments**：I recommend you researchers should be careful with the GraphRec's performance, since although the performance is reproducted with some additional skills, it's still much worse than TrustSVD. So I hope all you guys can use TrustSVD as one of the baselines for Social Recommendation problem.
+
+
+## 2. TrustSVD
+  
+  I find that TrustSVD is also really a strong baseline in social recommendation.
+  
+  So I add the config file with implementation of Librec.
+  
