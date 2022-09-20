@@ -33,8 +33,65 @@ Models for social recommendation
 
 ## 3. S4Rec: Semantic and Structural view  Fusion Modeling  for Social Recommendation
 
-  Recently we have proposed a new GNN-based framework S4Rec for rating prediction task in social recommendation. The paper is still under review.
+  Recently we have proposed a new GNN-based framework **S4Rec** for rating prediction task in social recommendation. The paper is still under review.
   
   The framework is a combination of a GNN-based deep model and a wide shallow model (TrustSVD, TrustMF, SocialMF, etc.), and extensive experiments on three public datasets, Epinions, Ciao and yelp have demonstrated the effectiveness of the framework. 
   
-  The implementation details of the framework are shown in the file of S4Rec.
+  The source code is available in the file S4Rec. The implementation details of the framework are shown as follows.
+  
+  ***
+  
+  The implementation of S4Rec consists of 4 steps, i.e., (1) preprocessing data, (2) running deep graph model, (3) running wide shallow model and (4) the final prediction fusion. 
+  
+  ### 3.1 Preprocessing data
+  
+  First, we need to preprocess the data with `preprocessing_filter5.py`. We retain the users with more than 5 ratings, and all items clicked by these retained users are also kept. 
+  You can revise the **dataset_name** to test different dataset.
+  
+  Then, we extend more implicit relations with collective intelligence based strategy with `generate_implicit_relations.py`.
+  
+  
+  ```
+  cd dataset
+  python preprocessing_filter5.py
+  python generate_implicit_relations.py
+  ```
+  
+  
+  ### 3.2 Running deep graph model
+  
+  Before running the deep graph model, we need to pretrain the relational triplet constraint with TransH to obtain user and item embeddings.
+  
+      1. Switch to `S4Rec/tranh`, run `cross_sampling.py` to obtain triplets.
+  
+      2. Then, execute `pretrain_tranh.py` to obtain the pretrained user and item embeddings.
+  
+  
+  Then, we switch to the upper data path `S4Rec` and execute `Main_S4Rec.py`. When the training process is finished, we need to set `args.test=1` so that we can obtain the 'GNN_test.txt' and `GNN_vaild.txt`.
+  
+  **Note: the parameter dataset_name needs revision.**
+  
+      1. python Main_S4Rec.py
+      
+      2. set `args.test=1`, and python Main_S4Rec.py
+      
+  
+  ### 3.3 Running wide shallow model
+  
+  Third, unzip the `librec-3.0.0.rar`, and copy the `dataset_name/new_*_set_filter5.txt` and 'trust_data.txt' to `librec-3.0.0/data/dataset_name`.
+  
+  The conf file of Librec is: `librec-3.0.0/core/target/classes/rec/context/rating/trustsvd-test.properties`. In this file, we can designate the input data dir and output result dir. You can revise it as you need.
+  
+  In windows, we can execute the java file: `librec-3.0.0/core/src/test/java/net/librec/MainTest.java` to obtain the trustsvd prediction. This java file uses the trustsvd-test.properties as the conf file.
+  
+  Takes Ciao as an example (run in Windows):
+  
+  ```
+  cd dataset/Ciao
+  cp new_* ../../librec-3.0.0/data/Ciao
+  cp trust_data.txt ../../librec-3.0.0/data/Ciao
+  # mkdir dir results
+  execute librec-3.0.0/core/src/test/java/net/librec/MainTest.java
+  ```
+  .
+  Then the predicted results of TrustSVD are stored in the file 'librec-3.0.0/results'
