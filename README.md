@@ -87,11 +87,12 @@ Models for social recommendation
   Takes Ciao as an example (run in Windows):
   
   ```
+  unzip librec-3.0.0.rar
   cd dataset/Ciao
   cp new_* ../../librec-3.0.0/data/Ciao
   cp trust_data.txt ../../librec-3.0.0/data/Ciao
   # mkdir dir results
   execute librec-3.0.0/core/src/test/java/net/librec/MainTest.java
   ```
-  .
-  Then the predicted results of TrustSVD are stored in the file 'librec-3.0.0/results'
+ 
+  Then the predicted results of TrustSVD are stored in the file 'librec-3.0.0/results'.
