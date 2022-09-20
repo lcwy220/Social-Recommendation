@@ -30,3 +30,7 @@ Models for social recommendation
   
   So I add the config file with implementation of Librec.
   
+
+## 3. S4Rec: Semantic and Structural view  Fusion Modeling  for Social Recommendation
+
+  Recently we have proposed a new GNN-based framework S4Rec for rating prediction task in social recommendation. The framework is a combination of a GNN-based deep model and a wide shallow model (TrustSVD, TrustMF, SocialMF, etc.), and extensive experiments on three public datasets, Epinions, Ciao and yelp have demonstrated the effectiveness of the framework. The implementation details of the framework are shown in the S4Rec.
