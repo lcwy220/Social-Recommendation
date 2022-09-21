@@ -72,11 +72,11 @@ Models for social recommendation
       2. Then, execute `pretrain_tranh.py` to obtain the pretrained user and item embeddings.
   
   
-  Then, we switch to the upper data path `S4Rec` and execute `Main_S4Rec.py`. When the training process is finished, we need to set `args.test=1` so that we can obtain the 'GNN_test.txt' and `GNN_vaild.txt`.
+  Then, we switch to the upper data path `S4Rec` and execute `Main_DeppGraph.py`. When the training process is finished, we need to set `args.test=1` so that we can obtain the 'GNN_test.txt' and `GNN_vaild.txt`.
   
   **Note: the parameter dataset_name needs revision.**
   
-      1. python Main_S4Rec.py
+      1. python Main_DeppGraph.py
       
       2. set `args.test=1`, and python Main_S4Rec.py
       
