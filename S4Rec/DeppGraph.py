@@ -287,7 +287,7 @@ class _ItemModel(nn.Module):
         return z
 
 
-class S4Rec(nn.Module):
+class DeppGraph(nn.Module):
     '''GraphRec model proposed in the paper Graph neural network for social recommendation 
 
     Args:
@@ -298,7 +298,7 @@ class S4Rec(nn.Module):
 
     '''
     def __init__(self,  user_emb, item_emb, rate_emb, num_users, num_items, num_rate_levels, emb_dim = 64):
-        super(S4Rec, self).__init__()
+        super(DeppGraph, self).__init__()
         self.num_users = num_users
         self.num_items = num_items
         self.num_rate_levels = num_rate_levels
