@@ -25,7 +25,7 @@ from torch.autograd import Variable
 from torch.backends import cudnn
 
 from utils import collate_fn
-from S4Rec import S4Rec
+from DeppGraph import DeppGraph
 from dataloader import GRDataset
 
 parser = argparse.ArgumentParser()
@@ -136,7 +136,7 @@ def main():
     valid_loader = DataLoader(valid_data, batch_size = args.batch_size, shuffle = False, collate_fn = collate_fn)
     test_loader = DataLoader(test_data, batch_size = args.batch_size, shuffle = False, collate_fn = collate_fn)
 
-    model = S4Rec(user_emb, item_emb, rate_emb, user_count+1, item_count+1, rate_count+1, args.embed_dim).to(device)
+    model = DeppGraph(user_emb, item_emb, rate_emb, user_count+1, item_count+1, rate_count+1, args.embed_dim).to(device)
 
     # set test=1 if testing mode is executed
     if args.test:
