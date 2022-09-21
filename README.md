@@ -96,3 +96,20 @@ Models for social recommendation
   ```
  
   Then the predicted results of TrustSVD are stored in the file 'librec-3.0.0/results'.
+  
+  
+  ### 3.4 Final prediction fusion
+  
+  Lastly, we fuse the predictions from deep graph model and wide shallow model and obtain the final results through `fuse_loss.py`.
+  
+  In the file, paratemer `weight` can be adjusted to balance the metric of MAE and RMSE.
+  
+  ```
+  python fuse_loss.py
+  ```
+  
+  
+  ******
+  **Note: ** The fianl predictions rely on both deep and wide model. Specifically, the deep graph model needs to be well trained to get the best MAE prediction, so the training epoch must exceed 30. Besides, the result of TrustSVD affects the RMSE predition. 
+  
+  
