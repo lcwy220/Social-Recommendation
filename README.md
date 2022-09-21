@@ -97,7 +97,7 @@ Models for social recommendation
   cp new_* ../../librec-3.0.0/data/Ciao
   cp trust_data.txt ../../librec-3.0.0/data/Ciao
   # mkdir dir results
-  execute librec-3.0.0/core/src/test/java/net/librec/MainTest.java
+  run the java file: librec-3.0.0/core/src/test/java/net/librec/MainTest.java
   ```
  
   Then the predicted results of TrustSVD are stored in the file 'librec-3.0.0/results'.
@@ -115,6 +115,6 @@ Models for social recommendation
   
   
   ******
-  **Note: ** The fianl predictions rely on both deep and wide model. Specifically, the deep graph model needs to be well trained to get the best MAE prediction, so the training epoch must exceed 30. Besides, the result of TrustSVD affects the RMSE predition. 
+  **Note: The fianl predictions rely on both deep and wide model. Specifically, the deep graph model needs to be well trained to get the best MAE prediction, so the training epoch must exceed 30. Besides, the result of TrustSVD also affects the RMSE predition.** 
   
   
