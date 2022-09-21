@@ -37,7 +37,7 @@ Models for social recommendation
   
   The framework is a combination of a GNN-based deep model and a wide shallow model (TrustSVD, TrustMF, SocialMF, etc.), and extensive experiments on three public datasets, Epinions, Ciao and yelp have demonstrated the effectiveness of the framework. 
   
-  The source code is available in the file S4Rec. The implementation details of the framework are shown as follows.
+  The source code is available in the file [S4Rec](https://github.com/lcwy220/Social-Recommendation/tree/master/S4Rec). The implementation details of the framework are shown as follows.
   
   ***
   
@@ -72,7 +72,7 @@ Models for social recommendation
       2. Then, execute `pretrain_tranh.py` to obtain the pretrained user and item embeddings.
   
   
-  Then, we switch to the upper data path `S4Rec` and execute `Main_DeppGraph.py`. When the training process is finished, we need to set `args.test=1` so that we can obtain the 'GNN_test.txt' and `GNN_vaild.txt`.
+  Then, we switch to the upper data path `S4Rec` and execute `Main_DeppGraph.py`. When the training process is finished, we need to set `args.test=1` so that we can obtain the 'GNN_test.txt' and `GNN_vaild.txt`. Or we can directly use the file `test_best_predict_list.txt`.
   
   **Note: the parameter dataset_name needs revision.**
   
