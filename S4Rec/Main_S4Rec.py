@@ -29,7 +29,7 @@ from S4Rec import S4Rec
 from dataloader import GRDataset
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--dataset_path', default='./datasets/Epinions/', help='dataset directory path: datasets/Ciao/Epinions')
+parser.add_argument('--dataset_path', default='./dataset/Ciao/', help='dataset directory path: datasets/Ciao/Epinions')
 parser.add_argument('--dataset_name', default='Ciao', help='Ciap, Epinions, yelp')
 parser.add_argument('--batch_size', type=int, default=256, help='input batch size')
 parser.add_argument('--embed_dim', type=int, default=80, help='the dimension of embedding')
@@ -52,8 +52,10 @@ if torch.cuda.is_available():
 here = os.path.dirname(os.path.abspath(__file__))
 
 
-fn = 'results/'+ args.dataset_name
+fn = 'results/'+  args.dataset_name
 
+if not os.path.exists('results'):
+    os.mkdir('results')
 
 if not os.path.exists(fn):
     os.mkdir(fn)

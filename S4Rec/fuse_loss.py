@@ -35,7 +35,8 @@ def process_dataset():
         if u in train_user_set and i in train_item_set and r != 0:
             new_test_set.append((u,i,r))
 
-    print(len(valid_set), len(new_valid_set), len(test_set), len(new_test_set))
+    print('valid set and filtered valid set len: ', len(valid_set), len(new_valid_set))
+    print('test set and filtered test set len: ', len(test_set), len(new_test_set))
 
     # 先统计training数据集中user的点击个数
     training_rating_dict = defaultdict(list)
@@ -66,8 +67,8 @@ def process_dataset():
             n_320.add(u)
 
 
-    print('test len: ', len(new_test_set), 'cold_rating_list lenth: ', len(cold_rating_list_20), len(cold_rating_list_40), len(cold_rating_list_80), len(cold_rating_list_160), len(cold_rating_list_320))
-    print( 'user statistics: ', len(n_20), len(n_40), len(n_80), len(n_160), len(n_320))
+    print('test len: ', len(new_test_set), 'cold rating_list lenth: ', len(cold_rating_list_20), len(cold_rating_list_40), len(cold_rating_list_80), len(cold_rating_list_160), len(cold_rating_list_320))
+    print( 'cold rating list of user distribution: ', len(n_20), len(n_40), len(n_80), len(n_160), len(n_320))
 
 
     # 统计user的social relation个数
@@ -104,8 +105,8 @@ def process_dataset():
         else:
             cold_social_list_80.append((u,i,r))
 
-    print('cold start user lenth: ', len(cold_start_user_list_0),len(cold_start_user_list_5),len(cold_start_user_list_10),len(cold_start_user_list_20),len(cold_start_user_list_40), len(cold_start_user_list_80))
     print('cold_start_social_list lenth: ', len(cold_social_list_0), len(cold_social_list_5), len(cold_social_list_10), len(cold_social_list_20), len(cold_social_list_40), len(cold_social_list_80))
+    print('cold social list of user distribution: ', len(cold_start_user_list_0),len(cold_start_user_list_5),len(cold_start_user_list_10),len(cold_start_user_list_20),len(cold_start_user_list_40), len(cold_start_user_list_80))
 
 
     
@@ -129,7 +130,7 @@ def process_dataset():
 
 
 
-def fuse_graphrec_mf_cold_social_analysis(filename_deep, filename_wide):
+def s4rec_cold_social_analysis(filename_deep, filename_wide):
     with open('%s.txt' %filename_deep, 'r') as f:
         for line in f:
             loss_list = json.loads(line.strip())
@@ -172,7 +173,7 @@ def fuse_graphrec_mf_cold_social_analysis(filename_deep, filename_wide):
 
     loss_0, loss_5, loss_10, loss_20, loss_40, loss_80 = [],[],[],[],[],[]
 
-    weight = 0.6
+    weight = 0.55
 
     for key,r in deep_loss_dict.items():
         rp = weight * r + (1 - weight) * wide_loss_dict[key]
@@ -209,7 +210,7 @@ def fuse_graphrec_mf_cold_social_analysis(filename_deep, filename_wide):
 
 
 
-def fuse_graphrec_mf_cold_rating_analysis(filename_deep, filename_wide):
+def s4rec_cold_rating_analysis(filename_deep, filename_wide):
     with open('%s.txt' %filename_deep, 'r') as f:
         for line in f:
             loss_list = json.loads(line.strip())
@@ -257,28 +258,28 @@ def fuse_graphrec_mf_cold_rating_analysis(filename_deep, filename_wide):
 
     loss_20, loss_40, loss_80, loss_160, loss_320 = [],[],[],[],[]
 
-    weight = 0.6
+    weight = 0.55
     fuse_rating_dict = dict()
 
-    for key,r in graph_loss.items():
+    for key,r in deep_loss_dict.items():
         if key in cold_rating_20_dict:
-            rp = weight*r + (1-weight)*loss_dict[key]
+            rp = weight*r + (1-weight)*wide_loss_dict[key]
             loss_20.append(abs(rp-cold_rating_20_dict[key]))
             fuse_rating_dict[key] = rp
         elif key in cold_rating_40_dict:
-            rp = weight*r + (1-weight)*loss_dict[key]
+            rp = weight*r + (1-weight)*wide_loss_dict[key]
             loss_40.append(abs(rp-cold_rating_40_dict[key]))
             fuse_rating_dict[key] = rp
         elif key in cold_rating_80_dict:
-            rp = weight*r + (1-weight)*loss_dict[key]
+            rp = weight*r + (1-weight)*wide_loss_dict[key]
             loss_80.append(abs(rp-cold_rating_80_dict[key]))
             fuse_rating_dict[key] = rp
         elif key in cold_rating_160_dict:
-            rp = weight*r + (1-weight)*loss_dict[key]
+            rp = weight*r + (1-weight)*wide_loss_dict[key]
             loss_160.append(abs(rp-cold_rating_160_dict[key]))
             fuse_rating_dict[key] = rp
         else:
-            rp = weight*r + (1-weight)*loss_dict[key]
+            rp = weight*r + (1-weight)*wide_loss_dict[key]
             loss_320.append(abs(rp-cold_rating_320_dict[key]))
             fuse_rating_dict[key] = rp
 
@@ -307,5 +308,5 @@ def fuse_graphrec_mf_cold_rating_analysis(filename_deep, filename_wide):
 
 if __name__ == '__main__':
     process_dataset()
-    s4rec_cold_rating_analysis('results/%s' %dataset_name, 'librec-3.0.0/results/%s/new_train_set_filter5.txt-trustsvd-output/trustsvd' %dataset_name)
-    s4rec_cold_social_analysis('results/%s' %dataset_name, 'librec-3.0.0/results/%s/new_train_set_filter5.txt-trustsvd-output/trustsvd' %dataset_name)
+    s4rec_cold_rating_analysis('results/%s/test_best_predict_list' %dataset_name, 'librec-3.0.0/results/%s/new_train_set_filter5.txt-trustsvd-output/trustsvd' %dataset_name)
+    s4rec_cold_social_analysis('results/%s/test_best_predict_list' %dataset_name, 'librec-3.0.0/results/%s/new_train_set_filter5.txt-trustsvd-output/trustsvd' %dataset_name)
