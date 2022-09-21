@@ -41,7 +41,12 @@ Models for social recommendation
   
   ***
   
-  The implementation of S4Rec consists of 4 steps, i.e., (1) preprocessing data, (2) running deep graph model, (3) running wide shallow model and (4) the final prediction fusion. 
+  The implementation of S4Rec consists of 4 steps: 
+  
+      1. preprocessing data 
+      2. running deep graph model
+      3. running wide shallow model 
+      4. the final prediction fusion. 
   
   ### 3.1 Preprocessing data
   
