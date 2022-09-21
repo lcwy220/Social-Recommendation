@@ -6,7 +6,7 @@ from collections import defaultdict
 
 # you need to change the dataset_path for different data
 dataset_name = 'Ciao'
-dataset_path = '../datasets/'+dataset_name+'/'
+dataset_path = '../dataset/'+dataset_name+'/'
 
 if not os.path.exists(dataset_name):
     os.mkdir(dataset_name)
