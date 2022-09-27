@@ -105,12 +105,12 @@ Models for social recommendation
   
   ### 3.4 Final prediction fusion
   
-  Lastly, we fuse the predictions from deep graph model and wide shallow model and obtain the final results through `fuse_loss.py`.
+  Lastly, we fuse the predictions from deep graph model and wide shallow model and obtain the final results through `S4Rec_fuse.py`.
   
   In the file, paratemer `weight` can be adjusted to balance the metric of MAE and RMSE.
   
   ```
-  python fuse_loss.py
+  python S4Rec_fuse.py
   ```
   
   
