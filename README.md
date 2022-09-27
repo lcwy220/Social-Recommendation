@@ -87,9 +87,9 @@ Models for social recommendation
   
   The conf file of Librec is: `librec-3.0.0/core/target/classes/rec/context/rating/trustsvd-test.properties`. In this file, we can designate the input data dir and output result dir. You can revise it as you need.
   
-  In ```Windows platform```, we can execute the java file: `librec-3.0.0/core/src/test/java/net/librec/MainTest.java` to obtain the trustsvd prediction. This java file uses the trustsvd-test.properties as the conf file.
+  In **Windows platform**, we can execute the java file: `librec-3.0.0/core/src/test/java/net/librec/MainTest.java` to obtain the trustsvd prediction. This java file uses the `trustsvd-test.properties` as the conf file.
   
-  Takes Ciao as an example (run in Windows):
+  Takes Ciao as an example (run in **Windows**):
   
   ```
   unzip librec-3.0.0.rar
