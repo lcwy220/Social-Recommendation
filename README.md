@@ -115,6 +115,6 @@ Models for social recommendation
   
   
   ******
-  **Note: The fianl predictions rely on both deep and wide model. Specifically, the deep graph model needs to be well trained to get the best MAE prediction, so the training epoch must exceed 30. Besides, the result of TrustSVD also affects the RMSE predition.** 
+  **Note: The final predictions rely on both deep and wide model. Specifically, the deep graph model needs to be well trained to get the best MAE prediction, so the training epoch must exceed 30. Besides, the result of TrustSVD also affects the RMSE predition.** 
   
   
