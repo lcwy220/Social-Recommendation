@@ -33,7 +33,7 @@ Models for social recommendation
 
 ## 3. S4Rec: Semantic and Structural view  Fusion Modeling  for Social Recommendation
 
-  Recently we have proposed a new GNN-based framework **S4Rec** for rating prediction task in social recommendation. The paper has beeb accepted by IEEE TKDE.
+  Recently we have proposed a new GNN-based framework **S4Rec** for rating prediction task in social recommendation. The paper has been accepted by IEEE TKDE.
   
   Paper link: [S4Rec](https://ieeexplore.ieee.org/document/9996130)
   
