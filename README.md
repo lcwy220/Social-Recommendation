@@ -37,6 +37,10 @@ Models for social recommendation
   
   Paper link: [S4Rec](https://ieeexplore.ieee.org/document/9996130)
   
+  ***
+  @ARTICLE{9996130,  author={Yuan, Kun and Liu, Guannan and Wu, Junjie and Xiong, Hui},  journal={IEEE Transactions on Knowledge and Data Engineering},   title={Semantic and Structural View Fusion Modeling for Social Recommendation},   year={2022},  volume={},  number={},  pages={1-13},  doi={10.1109/TKDE.2022.3230972}}
+  ***
+  
   The framework is a combination of a GNN-based deep model and a wide shallow model (TrustSVD, TrustMF, SocialMF, etc.), and extensive experiments on three public datasets, Epinions, Ciao and yelp have demonstrated the effectiveness of the framework. 
   
   The source code is available in the file [S4Rec](https://github.com/lcwy220/Social-Recommendation/tree/master/S4Rec). The implementation details of the framework are shown as follows.
