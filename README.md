@@ -94,7 +94,7 @@ Models for social recommendation
   
       1. python Main_DeppGraph.py
       
-      2. set `args.test=1`, and python Main_S4Rec.py
+      2. set `args.test=1`, and python Main_DeppGraph.py (reexecute the python file)
       
   
   ### 3.3 Running wide shallow model
